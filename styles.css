@@ -1,3 +1,6 @@
+/* -------------------------------- */
+/* RESET & BASE STYLES              */
+/* -------------------------------- */
 *,
 *::before,
 *::after {
@@ -7,7 +10,7 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; /* 10px = 1rem */
   box-sizing: border-box;
 }
 
@@ -16,25 +19,31 @@ body {
   background-size: cover;
 }
 
+/* -------------------------------- */
+/* CUSTOM PROPERTIES                */
+/* -------------------------------- */
 :root {
   /* Colors */
   --color-primary: #69443c;
   --color-secondary: #ffffff;
 
   /* Spacing System */
-  --space-2xs: 0.4rem;
-  --space-xs: 0.8rem;
-  --space-sm: 1.2rem;
-  --space-md: 1.6rem;
-  --space-lg: 2.4rem;
-  --space-xl: 3.2rem;
-  --space-2xl: 4.8rem;
-  --space-3xl: 6.4rem;
-  --space-4xl: 8rem;
-  --space-5xl: 9.6rem;
-  --space-6xl: 12.8rem;
+  --space-2xs: 0.4rem; /* 4px */
+  --space-xs: 0.8rem; /* 8px */
+  --space-sm: 1.2rem; /* 12px */
+  --space-md: 1.6rem; /* 16px */
+  --space-lg: 2.4rem; /* 24px */
+  --space-xl: 3.2rem; /* 32px */
+  --space-2xl: 4.8rem; /* 48px */
+  --space-3xl: 6.4rem; /* 64px */
+  --space-4xl: 8rem; /* 80px */
+  --space-5xl: 9.6rem; /* 96px */
+  --space-6xl: 12.8rem; /* 128px */
 }
 
+/* -------------------------------- */
+/* MAIN CONTENT LAYOUT              */
+/* -------------------------------- */
 .content-box {
   display: flex;
   align-items: center;
@@ -48,6 +57,7 @@ body {
   transform: translateY(-50%);
 }
 
+/* Typography styles */
 .content-box h1 {
   font-family: "Chelsea Market";
   font-size: var(--space-4xl);
@@ -63,24 +73,26 @@ body {
 }
 
 .content-box p:last-of-type {
-  font-family: "Lustria ";
+  font-family: "Lustria";
   font-size: var(--space-lg);
   text-align: center;
   width: 25%;
   padding: 3.2rem 0;
 }
 
+/* -------------------------------- */
+/* SOCIAL MEDIA COMPONENTS          */
+/* -------------------------------- */
 .socials {
-  /* position: absolute; */
   bottom: var(--space-2xl);
   left: 50%;
-  /* transform: translateX(-50%); */
   display: flex;
   gap: 1.6rem;
   align-items: center;
   margin-top: 4.8rem;
 }
 
+/* Social links hover effects */
 .social-link {
   text-decoration: none;
   display: inline-block;
@@ -102,12 +114,14 @@ body {
   opacity: 1;
 }
 
+/* -------------------------------- */
+/* BUTTON STYLES                    */
+/* -------------------------------- */
 .button {
   position: relative;
   font: inherit;
   font-size: var(--space-md);
   background-color: var(--color-secondary);
-  border: none;
   padding: 1rem 3.2rem;
   color: var(--color-primary);
   border: 2px solid var(--color-primary);
@@ -122,6 +136,7 @@ body {
   overflow: hidden;
 }
 
+/* Button hover animation */
 .button::before {
   content: "";
   position: absolute;
@@ -144,4 +159,158 @@ body {
 .button:hover::before,
 .button:focus::before {
   transform: scaleX(1);
+}
+
+/* -------------------------------- */
+/* FOOTER CREDIT                    */
+/* -------------------------------- */
+.credit {
+  position: absolute;
+  top: 70rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  opacity: 0.8;
+}
+
+.credit-link {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: opacity 0.2s ease;
+  position: relative;
+}
+
+/* Credit link hover animation */
+.credit-link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.credit-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* -------------------------------- */
+/* MEDIA QUERIES                    */
+/* -------------------------------- */
+
+/* Tablet and smaller desktop */
+@media screen and (max-width: 1024px) {
+  .content-box {
+    height: 56rem;
+    padding: 0 2rem;
+  }
+
+  .content-box h1 {
+    width: 60%;
+    font-size: 6.4rem;
+  }
+
+  .content-box p:last-of-type {
+    width: 40%;
+    font-size: 2rem;
+  }
+}
+
+/* Tablet Portrait */
+@media screen and (max-width: 768px) {
+  .content-box {
+    height: 52rem;
+  }
+
+  .content-box h1 {
+    width: 80%;
+    font-size: 5.6rem;
+  }
+
+  .content-box p:first-child {
+    font-size: 1.4rem;
+  }
+
+  .content-box p:last-of-type {
+    width: 60%;
+    font-size: 1.8rem;
+    padding: 2.4rem 0;
+  }
+
+  .button {
+    padding: 0.8rem 2.4rem;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .content-box {
+    height: 48rem;
+    padding: 0 1.6rem;
+  }
+
+  .content-box h1 {
+    width: 90%;
+    font-size: 4.2rem;
+  }
+
+  .content-box p:first-child {
+    font-size: 1.2rem;
+  }
+
+  .content-box p:last-of-type {
+    width: 85%;
+    font-size: 1.6rem;
+    padding: 2rem 0;
+  }
+
+  .socials {
+    gap: 1.2rem;
+    margin-top: 3.2rem;
+  }
+
+  .social-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .credit {
+    font-size: 1.2rem;
+    top: 60rem;
+  }
+
+  .button {
+    font-size: 1.4rem;
+    padding: 0.8rem 2rem;
+  }
+}
+
+/* Small Mobile */
+@media screen and (max-width: 320px) {
+  .content-box h1 {
+    font-size: 3.6rem;
+  }
+
+  .content-box p:last-of-type {
+    width: 95%;
+  }
+}
+
+/* Height-based adjustments */
+@media screen and (max-height: 700px) {
+  .content-box {
+    height: auto;
+    padding: 4rem 0;
+  }
+
+  .credit {
+    position: relative;
+    top: 2rem;
+  }
 }
